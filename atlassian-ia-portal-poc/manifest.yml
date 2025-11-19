@@ -1,5 +1,5 @@
 modules:
-  jiraServiceManagement:portalHeader:
+  jiraServiceManagement:portalSubheader:
     - key: atlassian-ia-portal-poc-hello-world-panel
       resource: main
       resolver:
