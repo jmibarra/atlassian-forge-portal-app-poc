@@ -1,10 +1,9 @@
 modules:
-  jiraServiceManagement:portalFooter:
+  jiraServiceManagement:portalHeader:
     - key: atlassian-ia-portal-poc-hello-world-panel
       resource: main
       resolver:
         function: resolver
-      viewportSize: medium
   function:
     - key: resolver
       handler: index.handler
