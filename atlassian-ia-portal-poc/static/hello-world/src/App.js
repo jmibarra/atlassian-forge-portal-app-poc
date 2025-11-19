@@ -13,19 +13,20 @@ const styles = {
   chatContainer: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100%', // Altura fija para el chat
+    height: '100%',
     border: '1px solid #ccc',
     borderRadius: '4px',
-    maxWidth: '500px',
+    //maxWidth: '500px',
     margin: '20px 0',
     backgroundColor: '#fff',
     boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
   },
   messagesArea: {
-    flexGrow: 1,
+    maxHeight: '200px',
+    flexShrink: 0,
     padding: '10px',
     overflowY: 'auto',
-    backgroundColor: '#f4f5f7', // Fondo claro para el área de mensajes
+    backgroundColor: '#f4f5f7',
   },
   message: (sender) => ({
     padding: '8px 12px',
@@ -65,13 +66,9 @@ const styles = {
 };
 
 function App() {
-  // Estado para la lista de mensajes
   const [messages, setMessages] = useState(mockMessages);
-  // Estado para el texto en el campo de entrada
   const [input, setInput] = useState('');
   
-  // Nota: El código original que usaba 'invoke' ha sido eliminado para simplificar
-  // la creación del mock de interfaz de usuario.
   
   const handleSend = () => {
     if (input.trim() !== '') {
@@ -81,18 +78,16 @@ function App() {
         sender: 'user', 
       };
       
-      // 1. Añadir el mensaje del usuario
       setMessages((prevMessages) => [...prevMessages, newMessage]);
       setInput(''); 
 
-      // 2. Simular una respuesta automática del bot después de un breve retraso
       setTimeout(() => {
         const botResponse = {
           id: Date.now() + 1,
           text: 'Gracias por tu mensaje. Este es un mock simple de UI.',
           sender: 'bot',
         };
-        // Usa una función de actualización para asegurar que se usa el estado más reciente
+
         setMessages((prevMessages) => [...prevMessages, botResponse]);
       }, 500);
     }
